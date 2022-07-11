@@ -104,7 +104,7 @@ import_small_datasets() {
     mongorestore --drop --uri ${URI}
     rm -rf dump
 
-    wget -qO- http://media.mongodb.org/zips.json | mongoimport --drop -c zips --uri ${URI}/samples
+    curl http://media.mongodb.org/zips.json | mongoimport --drop -c zips --uri ${URI}/samples
 
     unzip palbum.zip
     mongoimport --drop -c images --uri ${URI}/sample_pictures palbum/images.json
